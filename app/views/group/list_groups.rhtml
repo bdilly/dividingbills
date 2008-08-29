@@ -1,0 +1,33 @@
+<!----------------------------------------------------------------------
+# Authors:
+#   Bruno Dilly
+#
+# Copyright (C) 2007 Authors
+#
+# Released under GNU GPL, read the file 'COPYING' for more information
+# ---------------------------------------------------------------------->
+<h1> Group's List </h1>
+<% for group in @all_groups %>
+  <h3> <%= h(group.name) %> </h3>
+  <%= h(group.description) %> <br />
+  <%= link_to "Join",
+       {:action => 'join', :id => group}, {:method => :post } %> 
+  <%= link_to "Members",
+      {:action => 'list_group_members', :id => group} %>
+  <%= link_to "Bills",
+      {:action => 'list_group_bills', :id => group} %>
+  <br />
+<% end %>
+
+<%= if @all_group_pages.current.previous
+      link_to("Previous page", {:page => @all_group_pages.current.previous})
+    end
+%>
+
+<%= pagination_links(@all_group_pages) %>
+
+<%= if @all_group_pages.current.next
+      link_to("Next page", {:page => @all_group_pages.current.next})
+    end
+%>
+

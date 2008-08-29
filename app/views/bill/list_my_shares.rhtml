@@ -1,0 +1,26 @@
+<!----------------------------------------------------------------------
+# Authors:
+#   Bruno Dilly
+#
+# Copyright (C) 2007 Authors
+#
+# Released under GNU GPL, read the file 'COPYING' for more information
+# ---------------------------------------------------------------------->
+<h1> My Shares </h1>
+<% for share in @my_shares %>
+<h3> <%= h(Bill.find(share.bill_id).name) %> </h3>
+Value <%= number_to_currency(share.value) %> </br>
+<% end %>
+
+<%= if @my_shares_pages.current.previous
+      link_to("Previous page", {:page => @my_shares_pages.current.previous})
+    end
+%>
+
+<%= pagination_links(@my_shares_pages) %>
+
+<%= if @my_shares_pages.current.next
+      link_to("Next page", {:page => @my_shares_pages.current.next})
+    end
+%>
+

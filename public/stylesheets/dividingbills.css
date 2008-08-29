@@ -1,0 +1,77 @@
+/*---------------------------------------------------------------------
+* Authors:
+*   Bruno Dilly
+*
+* Copyright (C) 2007 Authors
+*
+* Released under GNU GPL, read the file 'COPYING' for more information
+* -------------------------------------------------------------------*/
+
+/* General styles */
+
+#side {
+width: 14em;
+height: 20em;
+float: left;
+background-image: url('/images/sidegradient.png');
+background-repeat: repeat-x;
+}
+
+#banner {
+background: #00ff00;
+}
+
+#main {
+margin-left: 15em;
+}
+
+/* Styles for flash */
+
+#notice {
+background-color: green;
+margin-left: -1em;
+color: white;
+padding: 0em 1em;
+}
+
+/* Styles for forms */
+
+.dividingbills-form fieldset {
+/* background: #66cc66; */
+}
+
+.dividingbills-form legend {
+
+}
+
+.dividingbills-form label {
+
+}
+
+.dividingbills-form .submit {
+
+}
+
+/* Error box */
+
+.fieldWithErrors {
+padding: 2px;
+background-color: red;
+display:  table;
+}
+
+#errorExplanation {
+
+}
+
+#errorExplanation h2 {
+
+}
+
+#errorExplanation p {
+
+}
+
+#errorExplanation ul li {
+
+}

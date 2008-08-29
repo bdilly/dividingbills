@@ -1,0 +1,27 @@
+<!----------------------------------------------------------------------
+# Authors:
+#   Bruno Dilly
+#
+# Copyright (C) 2007 Authors
+#
+# Released under GNU GPL, read the file 'COPYING' for more information
+# ---------------------------------------------------------------------->
+<div class="dividingbills-form">
+  <fieldset>
+    <legend>Please, Log In</legend>
+      <% form_tag do %>
+        <p>
+          <label for="username">Username:</label>
+          <%= text_field_tag :name, params[:name] %>
+        </p>
+        <p>
+          <label for="password">Password:</label>
+          <%= password_field_tag :password, params[:password] %>
+        </p>
+
+        <p>
+          <%= submit_tag "Login" %>
+        </p>
+      <% end %>
+  </fieldset>
+</div>

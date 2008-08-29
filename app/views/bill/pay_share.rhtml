@@ -1,0 +1,29 @@
+<!----------------------------------------------------------------------
+# Authors:
+#   Bruno Dilly
+#
+# Copyright (C) 2007 Authors
+#
+# Released under GNU GPL, read the file 'COPYING' for more information
+# ---------------------------------------------------------------------->
+<div class="dividingbills-form">
+
+  <%= error_messages_for 'share' %>
+
+  <fieldset>
+    <legend> Share's Information </legend>
+
+    <% form_for :share do |form| %>
+      <p>
+        <label for="who_I_paid_to">Who I paid to:</label>
+        <%= form.select :who_I_paid_to,
+            @people.collect{|p| [p.name]},
+            :prompt => "Select a person" %>
+      </p>
+
+      <%= submit_tag "I swear I paid!", :class => "submit" %>
+
+    <% end %>
+  </fieldset>
+</div>
+

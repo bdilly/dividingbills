@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Dividing Bills</title>
+  <%= stylesheet_link_tag "dividingbills", :media => "all" %>
+</head>
+<body id="layout_body">
+  <div id="banner">
+    <img src="/images/logo.png" />
+  </div>
+  <div id="columns">
+    <div id="side">
+      <br />
+      <% person = Person.find_by_id(session[:person_id]) %>
+      <% if !person %>
+        <%= link_to "Sign Up", :controller => "person", :action => "sign_up" %> <br />
+        <%= link_to "Login", :controller => "person", :action => "login" %> <br />
+      <% end %>
+      <% if person %>
+        <%= link_to "Logout", :controller => "person", :action => "logout" %> <br />
+      <% end %>
+      <%= link_to "List Groups", :controller => "group", :action => "list_groups" %> <br />
+      <% if person %>
+        <%= link_to "Create Group", :controller => "group", :action => "create" %> <br />
+        <%= link_to "Divide a New Bill", :controller => "bill", :action => "create" %> <br />
+        <%= link_to "Shares to Pay", :controller => "bill", :action => "shares_to_pay" %> <br />
+        <%= link_to "Paid Shares to Confirm", :controller => "bill", :action => "paid_shares_to_confirm" %> <br />
+        <%= link_to "My Bills", :controller => "bill", :action => "list_my_bills" %> <br />
+        <%= link_to "My Shares", :controller => "bill", :action => "list_my_shares" %> <br />
+      <% end %>
+    </div>
+    <div id="main">
+      <% if flash[:notice] %>
+        <div id="notice"><%= flash[:notice] %></div>
+      <% else %>
+        <br />
+      <% end %>
+      <%= yield :layout %>
+    </div>
+  </div>
+</body>
+</html>

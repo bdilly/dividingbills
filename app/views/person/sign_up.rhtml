@@ -1,0 +1,48 @@
+<!----------------------------------------------------------------------
+# Authors:
+#   Bruno Dilly
+#
+# Copyright (C) 2007 Authors
+#
+# Released under GNU GPL, read the file 'COPYING' for more information
+# ---------------------------------------------------------------------->
+<div class="dividingbills-form">
+
+  <%= error_messages_for 'person' %>
+
+  <fieldset>
+    <legend> Create your account </legend>
+
+    <% form_for :person do |form| %>
+      <p>
+        <label for="person_name">Username:</label>
+        <%= form.text_field :name, :size => 50 %>
+      </p>
+
+      <p>
+        <label for="person_password">Password:</label>
+        <%= form.password_field :password, :size => 50 %>
+      </p>
+
+      <p>
+        <label for="person_password_confirmation">Confirm Password:</label>
+        <%= form.password_field :password_confirmation, :size => 50 %>
+      </p>
+
+      <p>
+        <label for="person_full_name">Full Name:</label>
+        <%= form.text_field :full_name, :size => 50 %>
+      </p>
+
+      <p>
+        <label for="person_e_mail">E-mail Address:</label>
+        <%= form.text_field :e_mail, :size => 50 %>
+      </p>
+
+      <%= submit_tag "Sign Up", :class => "submit" %>
+
+    <% end %>
+  </fieldset>
+</div>
+
+

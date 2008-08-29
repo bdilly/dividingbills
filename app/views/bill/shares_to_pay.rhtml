@@ -1,0 +1,29 @@
+<!----------------------------------------------------------------------
+# Authors:
+#   Bruno Dilly
+#
+# Copyright (C) 2007 Authors
+#
+# Released under GNU GPL, read the file 'COPYING' for more information
+# ---------------------------------------------------------------------->
+<h1> Shares to Pay </h1>
+<% for share in @my_shares %>
+<h3> <%= h(Bill.find(share.bill_id).name) %> </h3>
+Ouch, I must pay <%= number_to_currency(share.value) %> to 
+<%= h(share.who_I_should_pay_to) %> until <%= h(Bill.find(share.bill_id).date) %> <br />
+<%= link_to "Pay",
+       {:action => 'pay_share', :id => share}, {:method => :get } %> <br />
+<% end %>
+
+<%= if @my_shares_pages.current.previous
+      link_to("Previous page", {:page => @my_shares_pages.current.previous})
+    end
+%>
+
+<%= pagination_links(@my_shares_pages) %>
+
+<%= if @my_shares_pages.current.next
+      link_to("Next page", {:page => @my_shares_pages.current.next})
+    end
+%>
+

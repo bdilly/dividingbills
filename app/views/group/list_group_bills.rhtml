@@ -1,0 +1,24 @@
+<!----------------------------------------------------------------------
+# Authors:
+#   Bruno Dilly
+#
+# Copyright (C) 2007 Authors
+#
+# Released under GNU GPL, read the file 'COPYING' for more information
+# ---------------------------------------------------------------------->
+<h1> <%= h(@group.name) %>'s Bills </h1>
+<% for bill in @group_bills %>
+<%= h(bill.name) %> <br />
+<% end %>
+
+<%= if @group_bills_pages.current.previous
+      link_to("Previous page", {:page => @group_bills_pages.current.previous})
+    end
+%>
+
+<%= pagination_links(@group_bills_pages) %>
+
+<%= if @group_bills_pages.current.next
+      link_to("Next page", {:page => @group_bills_pages.current.next})
+    end
+%>
